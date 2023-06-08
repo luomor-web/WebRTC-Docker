@@ -5,6 +5,8 @@ sed -i "s/SERVER_PUBLIC_IP/${PUBLIC_IP}/g" /ice.js
 #sed -i "s/SERVER_PUBLIC_IP/${PUBLIC_IP}/g" /apprtc/out/app_engine/constants.py
 cp /apprtc_configs/constants.py /apprtc/out/app_engine/constants.py
 
+echo 'log-file=/var/log/turn/turn.log' >> /etc/turnserver.conf
+
 nodejs ice.js 2>> /log/iceconfig.log &
 
 $GOPATH/bin/collidermain -port=8089 -tls=false --room-server=0.0.0.0 2>> /log/collider.log &

@@ -6,6 +6,7 @@ RUN grunt build
 
 WORKDIR /
 RUN mkdir /log
+RUN mkdir /var/log/turn
 
 COPY run.sh /
 RUN chmod +x /run.sh
